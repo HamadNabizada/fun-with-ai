@@ -1,6 +1,6 @@
 import styles from '../../styles/Footer.module.css'
 
-export default function Footer(){
+export default function Footer(props){
     return(
         <div className={styles.wrapper}>
             <input 
@@ -8,7 +8,7 @@ export default function Footer(){
                 className={styles.input} 
                 type="text" 
                 placeholder='Ask a question...'/>
-            <button className={styles.btn}>&#9993;</button>
+            <button onClick={props.handleClick} className={styles.btn}>&#9993;</button>
         </div>
     )
 }
