@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import MainChat from './components/MainChat'
 import {useState} from 'react'
+import {nanoid} from 'nanoid'
 
 export async function getServerSideProps(){
  const pass = process.env.OPENAI_SECRET
@@ -15,12 +16,17 @@ export async function getServerSideProps(){
 
 
 export default function Home(props) {
-  let [myPrompt, setMyPrompt] = useState("Write a poem about a dog wearing skis")
-  let [messages, setMessages] = useState({
-    sender:'',
-    message:''
-  })
-  
+  let [myPrompt, setMyPrompt] = useState("")
+  let [messages, setMessages] = useState([
+    {
+      sender:'text-curie:001',
+      message:'Hello friend. Ask me a question.',
+      id:nanoid()
+    }
+  ])
+    // sender:'',
+    // message:'',
+    // id:''
   async function getAnswerFromAI(){
     const data = {
       prompt: myPrompt,
@@ -42,11 +48,17 @@ export default function Home(props) {
      let apiData = await apiResponse.json()
      console.log(apiData);
   }
+
+  function handleChange(e){
+    setMyPrompt(e.target.value)
+  }
+  console.log(`my prompt is: ${myPrompt}`);
+  console.log(messages);
   return (
     <main className={styles.wrapper}>
       <Header />
-      <MainChat />
-      <Footer handleClick={getAnswerFromAI}/>
+      <MainChat {...messages} />
+      <Footer handleChange={handleChange} handleClick={getAnswerFromAI}/>
     </main>
   )
 }

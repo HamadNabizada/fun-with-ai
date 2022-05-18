@@ -1,9 +1,11 @@
 import styles from '../../styles/MainChat.module.css'
+import Message from './Message'
 
-export default function MainChat(){
+export default function MainChat(props){
+  console.log(props);
     return(
         <div className={styles.wrapper}>
-          <h1>Main Chat</h1>
+          <Message {...props}/>
         </div>
     )
 }

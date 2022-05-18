@@ -1,9 +1,16 @@
 import styles from '../../styles/Footer.module.css'
 
 export default function Footer(props){
+    function submitPrompt(e){
+        if(e.key === 'Enter'){
+            props.handleClick()
+        }
+    }
     return(
         <div className={styles.wrapper}>
-            <input 
+            <input
+                onKeyDown={submitPrompt}
+                onChange={props.handleChange} 
                 maxLength="150" 
                 className={styles.input} 
                 type="text" 

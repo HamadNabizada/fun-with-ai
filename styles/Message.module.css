@@ -1,0 +1,16 @@
+.wrapperMe{
+    padding: 1rem;
+    width:fit-content;
+    border-radius: 20px;
+    background-color: #39a1f9;
+    color:white;
+    border-bottom-right-radius: 3px;
+    align-self: flex-end;
+}
+.wrapperAI{
+    background-color: #e5e5ea;
+    padding: 1rem;
+    width:fit-content;
+    border-radius: 20px;
+    border-bottom-left-radius: 3px;
+}
