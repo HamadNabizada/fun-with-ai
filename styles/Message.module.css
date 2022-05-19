@@ -6,6 +6,7 @@
     color:white;
     border-bottom-right-radius: 3px;
     align-self: flex-end;
+    max-width:75%;
 }
 .wrapperAI{
     background-color: #e5e5ea;
@@ -13,4 +14,5 @@
     width:fit-content;
     border-radius: 20px;
     border-bottom-left-radius: 3px;
+    max-width:75%;
 }

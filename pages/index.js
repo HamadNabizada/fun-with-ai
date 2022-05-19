@@ -24,19 +24,18 @@ export default function Home(props) {
       id:nanoid()
     }
   ])
-    // sender:'',
-    // message:'',
-    // id:''
+
   async function getAnswerFromAI(){
-    setMessages(prevMessages =>{
-      let currentMessage = {
-        sender: 'me',
-        message: myPrompt,
-        id: nanoid()
-      }
-      let newMessage = [...prevMessages, currentMessage]
-      return newMessage
-    })
+    // setMessages(prevMessages =>{
+    //   let currentMessage = {
+    //     sender: 'me',
+    //     message: myPrompt,
+    //     id: nanoid()
+    //   }
+    //   let newMessage = [...prevMessages, currentMessage]
+    //   return newMessage
+    // })
+    // setMyPrompt('')
     const data = {
       prompt: myPrompt,
       temperature: 0.5,
@@ -56,15 +55,15 @@ export default function Home(props) {
      })
      let apiData = await apiResponse.json()
      console.log(apiData);
-     setMessages(prevMessages =>{
-      let currentMessage = {
-        sender: apiData.model,
-        message: apiData.choices[0].text,
-        id: apiData.id
-      }
-      let newMessages = [...prevMessages, currentMessage]
-      return newMessages
-    })
+    //  setMessages(prevMessages =>{
+    //   let currentMessage = {
+    //     sender: apiData.model,
+    //     message: apiData.choices[0].text,
+    //     id: apiData.id
+    //   }
+    //   let newMessages = [...prevMessages, currentMessage]
+    //   return newMessages
+    // })
   }
 
   function handleChange(e){
@@ -74,9 +73,10 @@ export default function Home(props) {
   console.log(messages);
   return (
     <main className={styles.wrapper}>
-      <Header />
-      <MainChat {...messages} />
-      <Footer handleChange={handleChange} handleClick={getAnswerFromAI}/>
+      <button onClick={getAnswerFromAI} >Request</button>
+      {/* <Header />
+      <MainChat messages={[...messages]} />
+      <Footer prompt={myPrompt} handleChange={handleChange} handleClick={getAnswerFromAI}/> */}
     </main>
   )
 }

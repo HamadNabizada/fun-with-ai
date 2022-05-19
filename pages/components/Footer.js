@@ -9,12 +9,13 @@ export default function Footer(props){
     return(
         <div className={styles.wrapper}>
             <input
+                value={props.prompt}
                 onKeyDown={submitPrompt}
                 onChange={props.handleChange} 
                 maxLength="150" 
                 className={styles.input} 
                 type="text" 
-                placeholder='Ask a question...'/>
+            />
             <button onClick={props.handleClick} className={styles.btn}>&#9993;</button>
         </div>
     )
