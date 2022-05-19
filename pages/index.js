@@ -28,6 +28,15 @@ export default function Home(props) {
     // message:'',
     // id:''
   async function getAnswerFromAI(){
+    setMessages(prevMessages =>{
+      let currentMessage = {
+        sender: 'me',
+        message: myPrompt,
+        id: nanoid()
+      }
+      let newMessage = [...prevMessages, currentMessage]
+      return newMessage
+    })
     const data = {
       prompt: myPrompt,
       temperature: 0.5,
@@ -47,6 +56,15 @@ export default function Home(props) {
      })
      let apiData = await apiResponse.json()
      console.log(apiData);
+     setMessages(prevMessages =>{
+      let currentMessage = {
+        sender: apiData.model,
+        message: apiData.choices[0].text,
+        id: apiData.id
+      }
+      let newMessages = [...prevMessages, currentMessage]
+      return newMessages
+    })
   }
 
   function handleChange(e){
