@@ -2,8 +2,8 @@ import styles from '../../styles/MainChat.module.css'
 import Message from './Message'
 
 export default function MainChat(props){
-
-  let messageElements = props.messages.map(item =>{
+  let messages = props.messages
+  let messageElements = messages.map(item =>{
     return <Message key={item.id} {...item}/>
   })
 
