@@ -35,6 +35,7 @@ export default function Home(props) {
       let newMessage = [...prevMessages, currentMessage]
       return newMessage
     })
+    setMyPrompt('')
     const data = {
       prompt: myPrompt,
       temperature: 0.5,
@@ -53,7 +54,6 @@ export default function Home(props) {
       body: JSON.stringify(data),
      })
      let apiData = await apiResponse.json()
-     console.log(apiData);
      setMessages(prevMessages =>{
       let currentMessage = {
         sender: apiData.model,
@@ -68,13 +68,12 @@ export default function Home(props) {
   function handleChange(e){
     setMyPrompt(e.target.value)
   }
-  console.log(`my prompt is: ${myPrompt}`);
-  console.log(messages);
+
   return (
     <main className={styles.wrapper}>
       <Header />
       <MainChat messages={[...messages]} />
-      <Footer handleChange={handleChange} handleClick={getAnswerFromAI}/>
+      <Footer prompt={myPrompt} handleChange={handleChange} handleClick={getAnswerFromAI}/>
     </main>
   )
 }
