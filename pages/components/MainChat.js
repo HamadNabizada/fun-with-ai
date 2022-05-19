@@ -3,10 +3,12 @@ import Message from './Message'
 
 export default function MainChat(props){
   let messages = props.messages
-  let messageElements = messages.map(item =>{
-    return <Message key={item.id} {...item}/>
-  })
-
+  let messageElements = []
+  
+  for (let i = 0; i < messages.length; i++) {
+    const currentMessage = messages[i];
+    messageElements.push(<Message key={currentMessage.id} {...currentMessage}/>)
+  }
   
   return(
       <div className={styles.wrapper}>
