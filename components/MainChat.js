@@ -1,4 +1,4 @@
-import styles from '../../styles/MainChat.module.css'
+import styles from '../styles/MainChat.module.css'
 import Message from './Message'
 
 export default function MainChat(props){

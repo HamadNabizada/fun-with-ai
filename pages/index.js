@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import MainChat from './components/MainChat'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import MainChat from '../components/MainChat'
 import {useState} from 'react'
 import {nanoid} from 'nanoid'
 

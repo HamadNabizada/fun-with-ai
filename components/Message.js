@@ -1,4 +1,4 @@
-import styles from '../../styles/Message.module.css'
+import styles from '../styles/Message.module.css'
 
 export default function Message(props){
 
