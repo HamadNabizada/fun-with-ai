@@ -3,9 +3,10 @@ import Message from './Message'
 
 export default function MainChat(props){
   let messages = props.messages
+  let messagesLength = message.length
   let messageElements = []
   
-  for (let i = 0; i < messages.length; i++) {
+  for (let i = 0; i < messagesLength; i++) {
     const currentMessage = messages[i];
     messageElements.push(<Message key={currentMessage.id} {...currentMessage}/>)
   }
