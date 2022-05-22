@@ -6,6 +6,7 @@ import {useState} from 'react'
 import {nanoid} from 'nanoid'
 import { useEffect } from 'react'
 
+
 export async function getServerSideProps(){
  const pass = process.env.OPENAI_SECRET
 
@@ -79,7 +80,7 @@ export default function Home(props) {
 
   return (
     <main className={styles.wrapper}>
-      <Header />
+      <Header onAllContacts={false} contact='Home' />
       <MainChat messages={[...messages]} />
       <Footer prompt={myPrompt} handleChange={handleChange} handleClick={getAnswerFromAI}/>
     </main>
