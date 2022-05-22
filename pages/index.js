@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import MainChat from '../components/MainChat'
 import {useState} from 'react'
 import {nanoid} from 'nanoid'
+import { useEffect } from 'react'
 
 export async function getServerSideProps(){
  const pass = process.env.OPENAI_SECRET
@@ -12,7 +13,6 @@ export async function getServerSideProps(){
    props:{pass: pass}
  }
 }
-
 
 
 export default function Home(props) {
@@ -25,6 +25,12 @@ export default function Home(props) {
     }
   ])
 
+  useEffect(()=>{
+    if(localStorage.getItem('HomeChat')){
+      setMessages(JSON.parse(localStorage.getItem('HomeChat')))
+    }
+  }, [])
+
   async function getAnswerFromAI(){
     setMessages(prevMessages =>{
       let currentMessage = {
@@ -33,6 +39,7 @@ export default function Home(props) {
         id: nanoid()
       }
       let newMessage = [...prevMessages, currentMessage]
+      localStorage.setItem('HomeChat',JSON.stringify(newMessage))
       return newMessage
     })
     setMyPrompt('')
@@ -61,6 +68,7 @@ export default function Home(props) {
         id: apiData.id
       }
       let newMessages = [...prevMessages, currentMessage]
+      localStorage.setItem('HomeChat',JSON.stringify(newMessages))
       return newMessages
     })
   }
