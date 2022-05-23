@@ -12,7 +12,6 @@ export default function Footer(props){
                 value={props.prompt}
                 onKeyDown={submitPrompt}
                 onChange={props.handleChange} 
-                maxLength="150" 
                 className={styles.input} 
                 type="text" 
             />

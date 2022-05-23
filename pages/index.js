@@ -21,7 +21,7 @@ export default function Home(props) {
   let [messages, setMessages] = useState([
     {
       sender:'text-curie:001',
-      message:'Hello friend. Ask me a question.',
+      message:'Hello friend. Ask me a question. (or click All Contacts)',
       id:nanoid()
     }
   ])
