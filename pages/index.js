@@ -57,7 +57,7 @@ export default function Home(props) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer ${props.pass}`,
       },
       body: JSON.stringify(data),
      })

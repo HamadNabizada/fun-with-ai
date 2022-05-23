@@ -5,6 +5,13 @@ import Footer from '../components/Footer'
 import {useState, useEffect} from 'react'
 import {nanoid} from 'nanoid'
 
+export async function getServerSideProps(){
+  const pass = process.env.OPENAI_SECRET
+ 
+  return{
+    props:{pass: pass}
+  }
+ }
 
 export default function Eli5(props){
     let [myPrompt, setMyPrompt] = useState("")
@@ -46,7 +53,7 @@ export default function Eli5(props){
         method: "POST",
         headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer ${props.pass}`,
         },
         body: JSON.stringify(data),
         })
