@@ -1,0 +1,14 @@
+.wrapper{
+    margin-top:.3rem;
+    width: 100%;
+    background-color:white;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 2rem;
+    display:flex;
+    flex-direction: row;
+    padding: 1rem;
+    justify-content: center;
+}
+.wrapper:hover{
+    background-color: #e0e0e0;
+}
